@@ -1,0 +1,17 @@
+# Use Node.js 20 base image
+FROM node:20
+
+# Set the working directory inside the container
+WORKDIR /myapp
+
+# Copy all files from the current directory to the container's /myapp directory
+COPY . .
+
+# Install the application dependencies
+RUN npm install
+
+# Expose the port Vite runs on (default is 5173)
+EXPOSE 5173
+
+# Command to run your Vite app
+CMD ["npm", "run", "dev"]
